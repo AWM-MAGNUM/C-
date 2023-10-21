@@ -1,0 +1,3 @@
+Bonjour, je suis le texte de l'exemple. J'aime la programmation en C++. 
+C++ est un langage puissant. Je préfère C++ à d'autres langages.
+
