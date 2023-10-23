@@ -1,6 +1,6 @@
-NAME  = BraiiiiiiinnnzzzZ
+NAME  = PhoneBook
 
-CFILES  = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+CFILES  = main.cpp Contact.cpp PhoneBook.cpp
 
 CC = c++
 

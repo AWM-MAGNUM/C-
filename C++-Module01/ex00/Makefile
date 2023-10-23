@@ -1,6 +1,6 @@
-NAME  = megaphone
+NAME  = BraiiiiiiinnnzzzZ
 
-CFILES  = megaphone.cpp
+CFILES  = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 CC = c++
 

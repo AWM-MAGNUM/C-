@@ -16,5 +16,6 @@ class PhoneBook
         void addContact(std:: string &fn, std:: string &ln, std:: string &nn, std:: string &phn, std:: string &ds);
         void displayContacts() const;
         void displayContactDetails(int index) const;
+        int getCurrentCount() const ;
 };
 #endif

@@ -1,6 +1,6 @@
-NAME  = Phonebook
+NAME  = Moar_brainz!
 
-CFILES  = main.cpp Contact.cpp Phonebook.cpp
+CFILES  = main.cpp Zombie.cpp ZombieHorde.cpp 
 
 CC = c++
 

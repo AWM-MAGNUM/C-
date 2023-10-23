@@ -1,4 +1,4 @@
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(){
     current = 0;
@@ -8,14 +8,13 @@ void PhoneBook::addContact(std::string &fn, std::string &ln, std::string &nn, st
 {
     int i = 0;
 
-    std::cout << current << std::endl;
     if(current < 8)
     {
-        contacts[current].set_First_name(fn);
-        contacts[current].set_Last_name(ln);
-        contacts[current].set_Nick_name(nn);
-        contacts[current].set_Phone_number(phn);
-        contacts[current].set_Darkest_secret(ds);
+        contacts[current].setFirstName(fn);
+        contacts[current].setLastName(ln);
+        contacts[current].setNickName(nn);
+        contacts[current].setPhoneNumber(phn);
+        contacts[current].setDarkestSecret(ds);
         current++;
     }
     else
@@ -25,12 +24,20 @@ void PhoneBook::addContact(std::string &fn, std::string &ln, std::string &nn, st
             contacts[i] = contacts[i + 1];
             i++;
         }
-        contacts[7].set_First_name(fn);
-        contacts[7].set_Last_name(ln);
-        contacts[7].set_Nick_name(nn);
-        contacts[7].set_Phone_number(phn);
-        contacts[7].set_Darkest_secret(ds);
+        contacts[7].setFirstName(fn);
+        contacts[7].setLastName(ln);
+        contacts[7].setNickName(nn);
+        contacts[7].setPhoneNumber(phn);
+        contacts[7].setDarkestSecret(ds);
     }
+}
+
+std::string rmTab(const std::string& str) 
+{
+    std::string newStr = str;
+    for (size_t pos = newStr.find("\t"); pos != std::string::npos; pos = newStr.find("\t", pos))
+        newStr.replace(pos, 1, " ");
+    return newStr;
 }
 
 void PhoneBook::displayContacts() const
@@ -44,9 +51,9 @@ void PhoneBook::displayContacts() const
 
     while(i < current)
     {
-        std::string first_name = contacts[i].get_First_name();
-        std::string last_name = contacts[i].get_Last_name();
-        std::string nickname = contacts[i].get_Nick_name();
+        std::string first_name = rmTab(contacts[i].getFirstName());
+        std::string last_name = rmTab(contacts[i].getLastName());
+        std::string nickname = rmTab(contacts[i].getNickName());
 
         if(first_name.length() > 10)
             first_name = first_name.substr(0, 9) + ".";
@@ -59,7 +66,6 @@ void PhoneBook::displayContacts() const
         std::cout << std::setw(10) << first_name << "|";
         std::cout << std::setw(10) << last_name << "|";
         std::cout << std::setw(10) << nickname << std::endl;
-
         i++;
     }
 }
@@ -71,10 +77,10 @@ void PhoneBook::displayContactDetails(int index) const
         std::cout << "Index invalide!" << std::endl;
         return;
     }
-
-    std::cout << "First Name: " << contacts[index - 1].get_First_name() << std::endl;
-    std::cout << "Last Name: " << contacts[index - 1].get_Last_name() << std::endl;
-    std::cout << "Nickname: " << contacts[index - 1].get_Nick_name() << std::endl;
-    std::cout << "Phone Number: " << contacts[index - 1].get_Phone_number() << std::endl;
-    std::cout << "Darkest Secret: " << contacts[index - 1].get_Darkest_secret() << std::endl;
+    
+    std::cout << "First Name: " << contacts[index - 1].getFirstName() << std::endl;
+    std::cout << "Last Name: " << contacts[index - 1].getLastName() << std::endl;
+    std::cout << "Nickname: " << contacts[index - 1].getNickName() << std::endl;
+    std::cout << "Phone Number: " << contacts[index - 1].getPhoneNumber() << std::endl;
+    std::cout << "Darkest Secret: " << contacts[index - 1].getDarkestSecret() << std::endl;
 }

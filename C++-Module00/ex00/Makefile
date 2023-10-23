@@ -1,6 +1,6 @@
-NAME  = Moar_brainz!
+NAME  = MegaPhone
 
-CFILES  = main.cpp Zombie.cpp ZombieHorde.cpp 
+CFILES  = megaphone.cpp
 
 CC = c++
 
