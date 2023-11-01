@@ -1,6 +1,6 @@
-NAME  = Zombie
+NAME  = Fixed
 
-CFILES  = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+CFILES  =  main.cpp Fixed.cpp
 
 CC = c++
 

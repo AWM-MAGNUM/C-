@@ -8,7 +8,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 
-$(NAME) : 
+
+$(NAME) : $(CFILES)
 		$(CC) $(FLAGS) $(CFILES) -o $(NAME)
 
 clean :

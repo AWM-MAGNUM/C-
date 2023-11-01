@@ -8,11 +8,9 @@ void HumanB::attack()
         std::cout << name << " has no weapon to attack with." << std::endl;
 }
 
-void HumanB::setWeapon(Weapon *w)
+void HumanB::setWeapon(Weapon &w)
 {
-    weapon = w;
+    weapon = &w;
 }
 
-HumanB::HumanB(const std::string &n) : name(n), weapon(nullptr) {}
-
-
+HumanB::HumanB(const std::string &n) : name(n), weapon(NULL) {}

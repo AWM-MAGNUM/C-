@@ -1,20 +1,27 @@
-#include "losers.hpp"
+#include "File.hpp"
 
 int File::OpenReadFile()
 {
     std::ifstream input(filename);
     if(!input.is_open())
         return -1;
-
     std::string line;
-    while (getline(input, line))
-        content += line + '\n';
+    bool firstLine = true;
+    while (std::getline(input, line))
+    {
+        if(!firstLine)
+            content += '\n';
+        content += line;
+        firstLine = false;
+    }
     input.close();
     return 0;
 }
 
 int File::ReplaceStr(const std::string &s1, const std::string &s2)
 {
+     if(s1.empty()) 
+        return 0;
     size_t pos = 0;
     while((pos = content.find(s1, pos)) != std::string::npos)
     {

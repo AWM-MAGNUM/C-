@@ -2,10 +2,11 @@
 
 int main()
 {
-    Zombie myZombie;
     int numZombie = 5;
-    Zombie *heapHordeZombie = myZombie.zombieHorde(5,"kerberos");
-    for(int i = 0; i < numZombie; i++)
+    Zombie *heapHordeZombie ;
+
+    heapHordeZombie = zombieHorde(numZombie,"kerberos");
+    for(int i = 0; heapHordeZombie && i < numZombie; i++)
         heapHordeZombie->announce();
     delete[] heapHordeZombie;
 }

@@ -8,13 +8,10 @@
 
 class Harl {
 public:
-    void complain( std::string level );
     Harl();
-
+    void complain(const std::string& level);
+    ~Harl();
 private:
-    //void (Harl::*ptrFunction)() = &Harl::debeug;
-    typedef void (Harl::*funcPTR)();
-    std::map<std::string, funcPTR> funcMAP;
     void debug();
     void info();
     void warning();

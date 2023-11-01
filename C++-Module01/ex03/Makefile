@@ -1,6 +1,6 @@
 NAME  = UNNECESSARY_VIOLENCE
 
-CFILES  =  main.cpp Weapon.cpp  HumanA.cpp  HumanB.cpp
+CFILES  =  main.cpp Weapon.cpp  humanA.cpp  humanB.cpp
 
 CC = c++
 
@@ -8,7 +8,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 
-$(NAME) : 
+$(NAME) : $(CFILES)
 		$(CC) $(FLAGS) $(CFILES) -o $(NAME)
 
 clean :

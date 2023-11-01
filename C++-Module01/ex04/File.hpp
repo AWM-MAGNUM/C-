@@ -1,5 +1,5 @@
-#ifndef LOSERS_HPP
-#define LOSERS_HPP
+#ifndef FILE_HPP
+#define FILE_HPP
 
 #include <iostream>
 #include <string>

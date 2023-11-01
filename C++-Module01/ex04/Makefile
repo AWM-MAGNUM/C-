@@ -1,6 +1,6 @@
 NAME  = Sed_is_for_losers
 
-CFILES  =  main.cpp losers.cpp
+CFILES  =  main.cpp File.cpp
 
 CC = c++
 
@@ -8,7 +8,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 
-$(NAME) : 
+$(NAME) : $(CFILES)
 		$(CC) $(FLAGS) $(CFILES) -o $(NAME)
 
 clean :
