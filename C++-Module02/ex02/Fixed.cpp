@@ -6,7 +6,7 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:37:19 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/11/01 16:56:24 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/11/01 21:01:11 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 Fixed::Fixed()
 {
-    std::cout << "Default constructor Called" << std::endl;
+    // std::cout << "Default constructor Called" << std::endl;
     value = 0;
 }
 
 Fixed::Fixed(const int iValue)
 {
-    std::cout << "int constructor Called" << std::endl;
+    // std::cout << "int constructor Called" << std::endl;
     value = iValue << fb;
 }
 
 Fixed::Fixed(const float fValue)
 {
-    std::cout << "Float constructor Called" << std::endl;
+    // std::cout << "Float constructor Called" << std::endl;
     value = roundf(fValue * 256);
 }
 
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::toInt(void) const
@@ -41,7 +41,7 @@ int Fixed::toInt(void) const
 }
 
 float Fixed::toFloat( void ) const
-{
+{ 
     return (float)value / 256.0f;
 }
 
@@ -126,8 +126,11 @@ Fixed Fixed::operator++(int) // Post-incrémentation
     this->value++;
     return temp; // retourner une copie de l'objet avant incrémentation
 }
-
-Fixed &Fixed::max(Fixed &a, Fixed &b)
+    
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 {
-    return (a > b) ? a : b;
+    if (a > b)
+        return a;
+    else
+        return b;
 }

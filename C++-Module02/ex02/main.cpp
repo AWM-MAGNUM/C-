@@ -6,7 +6,7 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:37:12 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/11/01 15:49:49 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/11/01 20:53:54 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int main( void )
     std::cout << a++ << std::endl;
     std::cout << a << std::endl;
     std::cout << b << std::endl;
-    // std::cout << Fixed::max( a, b ) << std::endl;
+    std::cout << Fixed::max( a, b ) << std::endl;
 }

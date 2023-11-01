@@ -6,7 +6,7 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:37:17 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/11/01 15:44:30 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/11/01 21:00:01 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ public:
     Fixed operator/(const Fixed &obj) const ;
     Fixed &operator++();
     Fixed operator++(int);
-    static Fixed &max(Fixed &a, Fixed &b);
+    static const Fixed &max(const Fixed &a, const Fixed &b);
 
 };
     std::ostream &operator<<(std::ostream &out, const Fixed &obj);
