@@ -6,7 +6,7 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:37:17 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/11/01 21:00:01 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/11/05 11:59:14 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Fixed
 {
 private:
     int value;
-    static const int fb = 8;
+    static const int fb;
 public:
     Fixed();
     Fixed(const int iValue);
@@ -40,8 +40,12 @@ public:
     Fixed operator/(const Fixed &obj) const ;
     Fixed &operator++();
     Fixed operator++(int);
+    Fixed &operator--();
+    Fixed operator--(int);
     static const Fixed &max(const Fixed &a, const Fixed &b);
-
+    static const Fixed &min(const Fixed &a, const Fixed &b);
+    static Fixed& max(Fixed &a, Fixed &b);
+    static Fixed& min(Fixed &a, Fixed &b);
 };
     std::ostream &operator<<(std::ostream &out, const Fixed &obj);
 #endif

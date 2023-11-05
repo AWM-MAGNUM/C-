@@ -6,15 +6,17 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:04:25 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/10/31 20:00:57 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/11/05 11:55:42 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+const int Fixed::fb = 8;
+
 Fixed::Fixed()
 {
-    std::cout << "Default constructor Called" << std::endl;
+    std::cout << "Default constructor called" << std::endl;
     value = 0;
 }
 
@@ -27,12 +29,12 @@ Fixed::Fixed(const int iValue)
 Fixed::Fixed(const float fValue)
 {
     std::cout << "Float constructor called" << std::endl;
-    value = roundf(fValue * 256);
+    value = roundf(fValue * (1 << fb));
 }
 
 float Fixed::toFloat() const
 {
-    return (float)value / 256.0f;
+    return (float)value / (1 << fb);
 }
 
 int Fixed::toInt() const
@@ -40,10 +42,10 @@ int Fixed::toInt() const
     return value >> fb;
 }
 
-Fixed::Fixed(const Fixed &obj)
+Fixed::Fixed(const Fixed& obj)
 {
     std::cout << "Copy constructor called" << std::endl;
-    value = obj.value;
+    *this = obj;
 }
 
 Fixed &Fixed::operator=(const Fixed &obj)
@@ -64,4 +66,3 @@ Fixed::~Fixed()
 {
     std::cout << "Destructor called" << std::endl;
 }
-

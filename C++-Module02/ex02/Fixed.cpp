@@ -6,11 +6,13 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:37:19 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/11/01 21:01:11 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/11/05 12:00:07 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int Fixed::fb = 8;
 
 Fixed::Fixed()
 {
@@ -26,8 +28,8 @@ Fixed::Fixed(const int iValue)
 
 Fixed::Fixed(const float fValue)
 {
-    // std::cout << "Float constructor Called" << std::endl;
-    value = roundf(fValue * 256);
+    // std::cout << "Float constructor called" << std::endl;
+    value = roundf(fValue * (1 << fb));
 }
 
 Fixed::~Fixed()
@@ -40,9 +42,9 @@ int Fixed::toInt(void) const
     return value >> fb;
 }
 
-float Fixed::toFloat( void ) const
-{ 
-    return (float)value / 256.0f;
+float Fixed::toFloat() const
+{
+    return (float)value / (1 << fb);
 }
 
 bool Fixed::operator>(const Fixed &obj) const 
@@ -114,22 +116,58 @@ std::ostream &operator<<(std::ostream &out, const Fixed &obj)
     return out;
 }
 
-Fixed &Fixed::operator++() // Pré-incrémentation
+Fixed &Fixed::operator++()
 {
     this->value++;
     return *this;
 }
 
-Fixed Fixed::operator++(int) // Post-incrémentation
+Fixed Fixed::operator++(int)
 {
     Fixed temp(*this);
     this->value++;
-    return temp; // retourner une copie de l'objet avant incrémentation
+    return temp;
+}
+Fixed &Fixed::operator--()
+{
+    this->value--;
+    return *this;
+}
+
+Fixed Fixed::operator--(int)
+{
+    Fixed temp(*this);
+    this->value--;
+    return temp;
 }
     
 const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 {
     if (a > b)
+        return a;
+    else
+        return b;
+}
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+{
+    if(a < b)
+        return a;
+    else
+        return b;
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+    if (a > b)
+        return a;
+    else
+        return b;
+}
+
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+    if(a < b)
         return a;
     else
         return b;
