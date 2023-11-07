@@ -1,29 +1,21 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 17:33:19 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/11/05 17:33:26 by bel-kase         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
 {
     std::cout << "Default constructor called" << std::endl;
-    this->Name = "";    
-    this->Hitpoints = 10;
-    this->Energy_points = 10;
-    this->Attack_damage = 0;
+    Name = "";    
+    Hitpoints = 10;
+    Energy_points = 10;
+    Attack_damage = 0;
 }
 
-ClapTrap::ClapTrap(std::string obj) : Name(obj), Hitpoints(10), Energy_points(10), Attack_damage(0) 
+ClapTrap::ClapTrap(std::string &obj)
 {
     std::cout << "Constructor Parametre called" << std::endl;
+    Name = obj;   
+    Hitpoints = 10;
+    Energy_points = 10;
+    Attack_damage = 0;
 }
 
 void ClapTrap::attack(const std::string& target)
@@ -49,7 +41,7 @@ void ClapTrap::takeDamage(unsigned int amount)
     else
     {
         this->Hitpoints -= amount;
-        std::cout << "ClapTrap " << this->Name << " now has" << this->Hitpoints << " Hit points left" << std::endl; 
+        std::cout << "ClapTrap " << this->Name << " now has " << this->Hitpoints << " Hit points left" << std::endl; 
     }
 }
 
