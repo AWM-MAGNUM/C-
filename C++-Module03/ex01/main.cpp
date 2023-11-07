@@ -2,17 +2,33 @@
 
 int main() 
 {
-    ScavTrap ScavTrapA("'ELITE CREW'");
-    ScavTrap ScavTrapB("GIGN");
+    ScavTrap ScavTrapA;
+    ScavTrap ScavTrapB;
+    ScavTrap ScavTrapD;
+    std::cout << "\n";
 
-    std::cout << "\nStarting combat:" << std::endl;
-    ScavTrapA.attack("GIGN");
-    ScavTrapB.takeDamage(ScavTrapA.getAttackDamage());
+    ScavTrap ScavTrapx("ELITE CREW");
+    ScavTrap ScavTrapy("GIGN");
+    std::cout << "\n";
 
-    ScavTrapB.attack("ELITE CREW");
-    ScavTrapA.takeDamage(ScavTrapB.getAttackDamage());
+    ScavTrap ScavTrapc = ScavTrapy;
+    std::cout << "\n";
 
-    std::cout << "\nRepair attempts:" << std::endl;
-    ScavTrapA.beRepaired(10);
-    ScavTrapB.beRepaired(10);
+    ScavTrapD = ScavTrapy;
+    std::cout << "\n";
+
+    std::cout << "\033[31m" << "🔔ROUND 1️⃣ 🔔" << "\033[0m" <<std::endl;
+    ScavTrapx.attack("GIGN");
+    ScavTrapy.takeDamage(ScavTrapx.getAttackDamage());
+    std::cout << "\n";
+
+    std::cout << "\033[31m" << "🔔ROUND 2️⃣ 🔔" << "\033[0m" <<std::endl;
+    ScavTrapy.attack("ELITE CREW");
+    ScavTrapx.takeDamage(ScavTrapy.getAttackDamage());
+    std::cout << "\n";
+
+    std::cout << "\033[31m" << "🆘 🔋 🆘:" << "\033[0m" << std::endl;
+    ScavTrapx.beRepaired(5);
+    ScavTrapy.beRepaired(5);
+    std::cout << "\n";
 }

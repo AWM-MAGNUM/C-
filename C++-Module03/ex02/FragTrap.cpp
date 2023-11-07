@@ -5,13 +5,37 @@ FragTrap::FragTrap()
     std::cout <<"Default constructor(FragTrap) called" << std::endl;
 }
 
-FragTrap::FragTrap(std::string const &obj)
+FragTrap::FragTrap(const FragTrap &obj) : ClapTrap(obj)
+{
+    std::cout << "Copy constructor(FragTrap) called" << std::endl;
+    *this = obj;
+}
+
+FragTrap &FragTrap::operator=(const FragTrap &obj)
+{
+    std::cout << "Copy assignment operator(FragTrap) called" << std::endl;
+    
+    if(this != &obj)
+    {
+        Name = obj.Name;   
+        Hitpoints = obj.Hitpoints;
+        Energy_points = obj.Energy_points;
+        Attack_damage = obj.Attack_damage;
+    }
+    return *this;
+}
+
+FragTrap::FragTrap(std::string const &obj) : ClapTrap(obj)
 {
     std::cout <<"Constructor parameter(FragTrap) called" << std::endl;
     Hitpoints = 100;
     Energy_points = 50;
     Attack_damage = 20;
-    Name = obj;
+}
+
+unsigned int FragTrap::getAttackDamage() const
+{
+    return Attack_damage;
 }
 
 void FragTrap::attack(const std::string& target)
@@ -22,7 +46,7 @@ void FragTrap::attack(const std::string& target)
         std::cout << "FragTrap " << Name << " attacks " << target << ", causing " << Attack_damage << " points of damage!" << std::endl;
     }
     else
-        std::cout << "ScavTrap " << Name << "is out of energy and connot attack!" << std::endl;
+        std::cout << "FragTrap " << Name << "is out of energy and connot attack!" << std::endl;
 }
 
 void FragTrap::highFivesGuys(void) const

@@ -11,14 +11,13 @@ class ClapTrap {
         unsigned int Attack_damage;
     public :
         ClapTrap();
-        ClapTrap(std::string &obj);
+        ClapTrap(const ClapTrap &obj);
+        ClapTrap &operator=(const ClapTrap &obj);
+        ClapTrap(const std::string &obj);
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
-        unsigned int getAttackDamage() const
-        {
-            return Attack_damage;
-        }
+        unsigned int getAttackDamage() const;
         ~ClapTrap();
-};
+        };
 #endif
