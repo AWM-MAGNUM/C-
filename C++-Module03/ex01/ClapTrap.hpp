@@ -15,9 +15,10 @@ class ClapTrap {
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
-        unsigned int getAttackDamage() const{
+        unsigned int getAttackDamage() const
+        {
             return Attack_damage;
         }
         ~ClapTrap();
-};
+        };
 #endif
