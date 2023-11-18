@@ -6,12 +6,6 @@ AAnimal::AAnimal()
     std::cout << "\033[31m" << "Default constructor(AAnimal) called An AAnimal has been created" << "\033[0m" << std::endl;    
 }
 
-AAnimal::AAnimal(const std::string &obj) : type(obj) 
-{
-    std::cout << "\033[32m" << "Parameterized constructor(AAnimal) called" << "\033[0m" << std::endl;
-    std::cout << "\033[32m" << "An AAnimal of type " << type << " has been created" << "\033[0m" << std::endl;
-}
-
 AAnimal::AAnimal(const AAnimal &obj)
 {
     std::cout << "\033[33m" << "Copy constructor(AAnimal) called An AAnimal has been copied" << "\033[0m" << std::endl;
@@ -22,9 +16,7 @@ AAnimal &AAnimal::operator=(const AAnimal &obj)
 {
     std::cout << "\033[34m" << "Copy assignment operator(AAnimal) called" << "\033[0m" << std::endl;
     if (this != &obj) 
-    {
         type = obj.type;
-    }
     return *this;
 }
 

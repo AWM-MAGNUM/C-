@@ -9,7 +9,6 @@ private :
     Brain *brain;
 public:
     Cat();
-    Cat(const std::string &obj);
     Cat(const Cat &obj);
     Cat &operator=(const Cat &Cat);
     Brain* getBrain();

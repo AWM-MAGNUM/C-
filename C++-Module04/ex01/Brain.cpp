@@ -1,12 +1,10 @@
 #include "Brain.hpp"
 
- 
 Brain::Brain() 
 {
     std::cout << "\033[31m" << "Default constructor(Brain) called" << "\033[0m" << std::endl;
     for(int i = 0;i < 100;i++)
         ideas[i] = "";
-
 }
 
 Brain::Brain(const Brain &obj)

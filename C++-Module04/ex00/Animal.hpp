@@ -8,7 +8,6 @@ protected:
     std::string type;
 public:
     Animal();
-    Animal(const std::string &obj);
     Animal(const Animal &obj);
     Animal &operator=(const Animal &obj);
     std::string getType() const;

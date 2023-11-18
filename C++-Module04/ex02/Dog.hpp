@@ -9,7 +9,6 @@ private :
     Brain *brain;
 public:
     Dog();
-    Dog(const std::string &obj);
     Dog(const Dog &obj);
     Dog &operator=(const Dog &dog);
     Brain* getBrain();

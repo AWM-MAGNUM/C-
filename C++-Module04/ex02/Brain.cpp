@@ -1,12 +1,11 @@
 #include "Brain.hpp"
 
- 
 Brain::Brain() 
 {
+    int numElements = sizeof(ideas) / sizeof(ideas[0]);
     std::cout << "\033[31m" << "Default constructor(Brain) called" << "\033[0m" << std::endl;
-    for(int i = 0;i < 100;i++)
+    for(int i = 0;i < numElements;i++)
         ideas[i] = "";
-
 }
 
 Brain::Brain(const Brain &obj)
@@ -17,10 +16,11 @@ Brain::Brain(const Brain &obj)
 
 Brain &Brain::operator=(const Brain &obj)
 {
+    int numElements = sizeof(ideas) / sizeof(ideas[0]);
     std::cout << "\033[34m" << "Copy assignment operator(Brain) called" << "\033[0m" << std::endl;
      if (this != &obj) 
     {
-        for(int i = 0;i < 100;i++)
+        for(int i = 0;i < numElements;i++)
             ideas[i] = obj.ideas[i];
     }
     return *this;
@@ -28,7 +28,8 @@ Brain &Brain::operator=(const Brain &obj)
 
 void Brain::getIdeas()
 {
-    for(int i = 0; i < 100;i++)
+    int numElements = sizeof(ideas) / sizeof(ideas[0]);
+    for(int i = 0; i < numElements;i++)
         std::cout << i + 1 << ideas[i] << std::endl;
 }
 
